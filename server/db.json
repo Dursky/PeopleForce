@@ -1,19 +1,10 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+	"posts": [
+		{
+			"title": "My first post",
+			"description": "This is my first post",
+			"createdAt": "2000-01-14T07:00:01.879Z",
+			"id": 1
+		}
+	]
 }
