@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     display: 'flex',
     alignItems: 'center',
-    paddingTop: 80,
   },
   button: {
     borderColor: '#7CB9E8',
@@ -148,6 +147,7 @@ const styles = StyleSheet.create({
   },
 
   firstStage: {
+    marginTop: 50,
     width: '100%',
     display: 'flex',
     alignItems: 'center',
@@ -171,7 +171,14 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingBottom: 10,
   },
-  descriptionText: {color: '#353535', fontWeight: '400', textAlign: 'center'},
+  descriptionText: {
+    color: 'white',
+    fontWeight: '400',
+    textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10,
+  },
   fourthStage: {
     marginTop: 20,
     width: '100%',
