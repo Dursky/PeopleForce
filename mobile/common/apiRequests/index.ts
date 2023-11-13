@@ -35,7 +35,7 @@ export const createPost = async ({
     .then(i => i.data);
 };
 
-export const deletePost = async (id: string) => {
+export const deletePost = async (id: number) => {
   return axios
     .delete(`${SERVER_URL}/posts/${id}`, {
       headers: {'x-api-key': API_KEY},

@@ -3,6 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {AnimatedButton} from '../AnimatedButton';
 import {useDispatch} from 'react-redux';
 import {removePost} from '../../reducer';
+import {deletePost} from '../../common/apiRequests';
 
 interface props {
   onPress?: () => boolean;
@@ -22,8 +23,13 @@ export const PostCard = ({
 }: props) => {
   const dispatch = useDispatch();
 
-  const onDeleteHandler = () => {
-    dispatch(removePost({id}));
+  const onDeleteHandler = async () => {
+    try {
+      await deletePost(id);
+      dispatch(removePost({id}));
+    } catch (err) {
+      console.error('Something went wrong with onDeleteHandler: ', err);
+    }
   };
 
   return (
