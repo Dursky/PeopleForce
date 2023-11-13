@@ -7,6 +7,7 @@ import {AxiosError} from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
 import {setPosts} from '../../reducer';
 import {useNavigation} from '@react-navigation/native';
+import Button from '../../components/Button';
 
 export const Posts = () => {
   const navigation = useNavigation<navigationType>();
@@ -38,7 +39,10 @@ export const Posts = () => {
     <>
       <SafeAreaView style={styles.container}>
         <Text style={styles.mainText}>All Posts!</Text>
-
+        <Button
+          content="Create new post"
+          onPress={() => navigation.navigate?.('AddPost')}
+        />
         {postList.length > 0 && (
           <FlatList
             data={postList}
@@ -66,6 +70,8 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
+    display: 'flex',
+    alignItems: 'center',
   },
   flatlistContainer: {
     paddingLeft: 20,

@@ -11,10 +11,13 @@ const postsSlicer = createSlice({
     removePost: (state, action) => {
       state.posts = state.posts.filter(i => i.id !== action.payload.id);
     },
+    addPost: (state, action) => {
+      state.posts = [...state.posts, action.payload];
+    },
   },
 });
 
 export const {
-  actions: {setPosts},
+  actions: {setPosts, removePost, addPost},
   reducer: postsReducer,
 } = postsSlicer;

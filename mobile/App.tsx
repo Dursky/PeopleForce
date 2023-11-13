@@ -6,6 +6,7 @@ import {store} from './store';
 import {Root} from './Screens/Root';
 import Posts from './Screens/Posts';
 import {PostDetails} from './Screens/PostDetails';
+import {AddPost} from './Screens/AddPost';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ function App() {
           <Stack.Screen name="Root" component={Root} />
           <Stack.Screen name="PostDetails" component={PostDetails} />
           <Stack.Screen name="Posts" component={Posts} />
+          <Stack.Screen name="AddPost" component={AddPost} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
