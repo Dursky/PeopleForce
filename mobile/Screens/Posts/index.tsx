@@ -34,7 +34,6 @@ export const Posts = () => {
     return true;
   };
 
-  console.log('postList: ', postList);
   return (
     <>
       <SafeAreaView style={styles.container}>

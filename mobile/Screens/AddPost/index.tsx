@@ -24,7 +24,6 @@ export const AddPost = () => {
         body: state.description,
       });
 
-      console.log(state);
       dispatch(
         addPost({
           id: state.id,
