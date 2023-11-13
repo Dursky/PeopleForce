@@ -1,6 +1,6 @@
 # Installation:
 
-CHANGE YOUR IP ADDRESS IN .env AND AT SERVER COMMAND RUN!!
+CHANGE YOUR IP ADDRESS IN .env AND AT SERVER COMMAND RUN !
 
 ```
 yarn run install
