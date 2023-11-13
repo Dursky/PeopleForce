@@ -9,8 +9,15 @@ import {
 } from 'react-native';
 import Button from '../../components/Button';
 import {Header} from '../../components/Header';
+import {useNavigation} from '@react-navigation/native';
+import {navigationType} from '../../types';
 
 export const Root = () => {
+  const navigation = useNavigation<navigationType>();
+
+  const onPress = () => {
+    navigation.navigate?.('Posts');
+  };
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.body}>
@@ -32,7 +39,7 @@ export const Root = () => {
             </Text>
           </View>
           <View style={styles.buttonPlacing}>
-            <Button content="ZOBACZ WIĘCEJ" />
+            <Button content="ZOBACZ WIĘCEJ" onPress={onPress} />
           </View>
         </View>
         <View style={styles.secondStage}>
@@ -90,7 +97,7 @@ export const Root = () => {
             </Text>
           </View>
           <View style={styles.buttonPlacing}>
-            <Button content="ZOBACZ WIĘCEJ" />
+            <Button content="ZOBACZ WIĘCEJ" onPress={onPress} />
           </View>
         </View>
       </View>

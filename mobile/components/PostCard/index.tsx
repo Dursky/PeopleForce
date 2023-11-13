@@ -1,14 +1,27 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {PostType} from '../../types';
 
-export const PostCard = ({title, description, createdAt, id}: PostType) => {
+interface props {
+  onPress?: () => boolean;
+  id: number;
+  title: string;
+  description: string;
+  createdAt: string;
+}
+
+export const PostCard = ({
+  id,
+  title,
+  description,
+  createdAt,
+  onPress,
+}: props) => {
   return (
-    <View style={styles.container}>
-      <Text>{id}</Text>
-      <Text>{title}</Text>
-      <Text>{description}</Text>
-      <Text>{createdAt}</Text>
+    <View style={styles.container} onStartShouldSetResponder={onPress}>
+      <Text>ID: {id}</Text>
+      <Text>Title: {title}</Text>
+      <Text>Description: {description}</Text>
+      <Text>CreatedAt: {createdAt}</Text>
     </View>
   );
 };
@@ -17,7 +30,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 200,
-    backgroundColor: 'red',
+    backgroundColor: '#7CB9E8',
     display: 'flex',
     justifyContent: 'center',
   },

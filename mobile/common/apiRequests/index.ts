@@ -1,17 +1,21 @@
 import axios from 'axios';
 import {SERVER_URL, API_KEY} from '@env';
 
-export const getAllPosts = async () =>
-  axios.get(`${SERVER_URL}/posts`, {
-    headers: {'x-api-key': API_KEY},
-  });
-
-export const getPost = async (id: string) =>
-  axios
-    .get(`${SERVER_URL}/posts/${id}`, {
+export const getAllPosts = async () => {
+  return axios
+    .get(`${SERVER_URL}/posts`, {
       headers: {'x-api-key': API_KEY},
     })
     .then(i => i.data);
+};
+
+export const getPost = async (id: string) => {
+  return axios
+    .get(`${SERVER_URL}/posts/${id}`, {
+      headers: {'x-api-key': API_KEY, 'content-type': 'application/json'},
+    })
+    .then(i => i.data);
+};
 
 export const createPost = async ({
   title,
@@ -19,8 +23,8 @@ export const createPost = async ({
 }: {
   title: string;
   body: string;
-}) =>
-  axios
+}) => {
+  return axios
     .post(
       `${SERVER_URL}/posts`,
       {title, body},
@@ -29,10 +33,12 @@ export const createPost = async ({
       },
     )
     .then(i => i.data);
+};
 
-export const deletePost = async (id: string) =>
-  axios
+export const deletePost = async (id: string) => {
+  return axios
     .delete(`${SERVER_URL}/posts/${id}`, {
       headers: {'x-api-key': API_KEY},
     })
     .then(i => i.data);
+};

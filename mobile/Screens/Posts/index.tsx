@@ -1,81 +1,62 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import PostCard from '../../components/PostCard';
-import {PostType} from '../../types';
+import {navigationType, storeType} from '../../types';
 import {getAllPosts} from '../../common/apiRequests';
-import {SERVER_URL, API_KEY} from '@env';
+import {AxiosError} from 'axios';
+import {useDispatch, useSelector} from 'react-redux';
+import {setPosts} from '../../reducer';
+import {useNavigation} from '@react-navigation/native';
 
-const DATA = [
-  {
-    title: 'xxxx',
-    description: 'xwefewf',
-    createdAt: 'erferf',
-    id: 1,
-  },
-  {
-    title: 'xxxx',
-    description: 'xwefewf',
-    createdAt: 'erferf',
-    id: 2,
-  },
-  {
-    title: 'xxxx',
-    description: 'xwefewf',
-    createdAt: 'erferf',
-    id: 3,
-  },
-  {
-    title: 'xxxx',
-    description: 'xwefewf',
-    createdAt: 'erferf',
-    id: 4,
-  },
-  {
-    title: 'xxxx',
-    description: 'xwefewf',
-    createdAt: 'erferf',
-    id: 5,
-  },
-  {
-    title: 'xxxx',
-    description: 'xwefewf',
-    createdAt: 'erferf',
-    id: 6,
-  },
-];
 export const Posts = () => {
-  const [posts, setPosts] = useState<PostType[]>([]);
-  console.log(`${SERVER_URL}/posts`);
+  const navigation = useNavigation<navigationType>();
+  const postList = useSelector((state: storeType) => state.postState.posts);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     (async () => {
       try {
         const result = await getAllPosts();
-        console.log('result: ', result);
+        dispatch(setPosts(result));
       } catch (err) {
-        console.error('Something went wrong get Posts: ', err);
+        console.error(
+          'Something went wrong get Posts: ',
+          (err as AxiosError).request,
+        );
       }
     })();
-  }, []);
+  }, [dispatch]);
 
+  const onPress = (id: number) => {
+    navigation && navigation.navigate?.('PostDetails', {id});
+    return true;
+  };
+
+  console.log('postList: ', postList);
   return (
     <>
       <SafeAreaView style={styles.container}>
         <Text style={styles.mainText}>All Posts!</Text>
-        <FlatList
-          data={DATA}
-          renderItem={({item}) => (
-            <View style={styles.postCardPlacing}>
-              <PostCard
-                title={item.title}
-                description={item.description}
-                createdAt={item.createdAt}
-                id={item.id}
-              />
-            </View>
-          )}
-          contentContainerStyle={styles.flatlistContainer}
-          keyExtractor={item => item.id}
-        />
+
+        {postList.length > 0 && (
+          <FlatList
+            data={postList}
+            renderItem={({item}) => (
+              <View style={styles.postCardPlacing}>
+                <PostCard
+                  title={item.title}
+                  description={item.description}
+                  createdAt={item.createdAt}
+                  id={item.id}
+                  onPress={() => onPress(item.id)}
+                />
+              </View>
+            )}
+            contentContainerStyle={styles.flatlistContainer}
+            keyExtractor={item => item.id}
+          />
+        )}
       </SafeAreaView>
     </>
   );
