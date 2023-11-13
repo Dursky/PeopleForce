@@ -1,31 +1,105 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import Button from '../../components/Button';
 import {Header} from '../../components/Header';
 
 export const Root = () => {
   return (
-    <View style={styles.body}>
-      <Header
-        mainText="KILKA SŁÓW O NAS"
-        subText="CZYLI KIM JESTEMY I DOKAT ZMIERZAMY"
-      />
-      <View style={styles.descriptionPlacing}>
-        <Text style={styles.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et
-          porta magna. Curabitur ullamcorper pulvinar imperdiet. Maecenas
-          condimentum sem aliquet, vulputate nisl id, maximus justo. Suspendisse
-          venenatis tellus sed lorem bibendum euismod. Orci varius natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          Pellentesque blandit sem ex, in pulvinar risus tempor vel. Quisque
-          vulputate odio malesuada pretium convallis. Nam semper velit at ipsum
-          eleifend euismod.
-        </Text>
+    <ScrollView style={styles.scrollView}>
+      <View style={styles.body}>
+        <View style={styles.firstStage}>
+          <Header
+            mainText="KILKA SŁÓW O NAS"
+            subText="CZYLI KIM JESTEMY I DOKAT ZMIERZAMY"
+          />
+          <View style={styles.descriptionPlacing}>
+            <Text style={styles.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et
+              porta magna. Curabitur ullamcorper pulvinar imperdiet. Maecenas
+              condimentum sem aliquet, vulputate nisl id, maximus justo.
+              Suspendisse venenatis tellus sed lorem bibendum euismod. Orci
+              varius natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Pellentesque blandit sem ex, in pulvinar risus
+              tempor vel. Quisque vulputate odio malesuada pretium convallis.
+              Nam semper velit at ipsum eleifend euismod.
+            </Text>
+          </View>
+          <View style={styles.buttonPlacing}>
+            <Button content="ZOBACZ WIĘCEJ" />
+          </View>
+        </View>
+        <View style={styles.secondStage}>
+          <Image
+            source={require('assets/images/cat_first.jpeg')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Image
+            source={require('assets/images/cat_third.jpeg')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Image
+            source={require('assets/images/cat_third.jpeg')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <Image
+            source={require('assets/images/cat_fourth.jpeg')}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        </View>
+        <View style={styles.thirdStage}>
+          <ImageBackground
+            resizeMode="cover"
+            style={styles.backgroundImage}
+            source={require('assets/images/blue_houses.webp')}>
+            <Text style={styles.descriptionText}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et
+              porta magna. Curabitur ullamcorper pulvinar imperdiet. Maecenas
+              condimentum sem aliquet, vulputate nisl id, maximus justo.
+              Suspendisse venenatis tellus sed lorem bibendum euismod. Orci
+              varius natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Pellentesque blandit sem ex, in pulvinar risus
+              tempor vel. Quisque vulputate odio malesuada pretium convallis.
+              Nam semper velit at ipsum eleifend euismod. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Fusce et porta magna. Curabitur
+              ullamcorper pulvinar imperdiet. Maecenas condimentum sem aliquet,
+              vulputate nisl id, maximus justo.
+            </Text>
+          </ImageBackground>
+        </View>
+        <View style={styles.fourthStage}>
+          <Header
+            mainText="NASZA OFERTA"
+            subText="DOWIEDZ SIĘ CO MOŻEMY TOBIE ZAOFEROWAĆ"
+          />
+          <View style={styles.descriptionPlacing}>
+            <Text style={styles.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et
+              porta magna. Curabitur ullamcorper pulvinar imperdiet. Maecenas
+              condimentum sem aliquet, vulputate nisl id, maximus justo.
+              Suspendisse venenatis tellus sed lorem bibendum euismod. Orci
+              varius natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Pellentesque blandit sem ex, in pulvinar risus
+              tempor vel. Quisque vulputate odio malesuada pretium convallis.
+              Nam semper velit at ipsum eleifend euismod.
+            </Text>
+          </View>
+          <View style={styles.buttonPlacing}>
+            <Button content="ZOBACZ WIĘCEJ" />
+          </View>
+        </View>
       </View>
-      <View style={styles.buttonPlacing}>
-        <Button content="ZOBACZ WIĘCEJ" />
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -64,8 +138,46 @@ const styles = StyleSheet.create({
   descriptionPlacing: {
     marginTop: 30,
   },
+
   buttonPlacing: {
     marginTop: 50,
+  },
+  scrollView: {
+    width: '100%',
+    height: '100%',
+  },
+
+  firstStage: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  secondStage: {
+    width: '100%',
+    marginTop: 40,
+  },
+  image: {
+    width: '100%',
+    height: 200,
+
+    marginTop: 10,
+  },
+  thirdStage: {
+    width: '100%',
+  },
+  backgroundImage: {
+    width: '100%',
+    marginTop: 10,
+    paddingTop: 50,
+    paddingBottom: 10,
+  },
+  descriptionText: {color: '#353535', fontWeight: '400', textAlign: 'center'},
+  fourthStage: {
+    marginTop: 20,
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    paddingBottom: 50,
   },
 });
 
