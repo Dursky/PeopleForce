@@ -1,11 +1,11 @@
 import React from 'react';
 import {
+  Image,
+  ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
   View,
-  ScrollView,
-  Image,
-  ImageBackground,
 } from 'react-native';
 import Button from '../../components/Button';
 import {Header} from '../../components/Header';
@@ -63,17 +63,12 @@ export const Root = () => {
             style={styles.backgroundImage}
             source={require('assets/images/blue_houses.webp')}>
             <Text style={styles.descriptionText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et
-              porta magna. Curabitur ullamcorper pulvinar imperdiet. Maecenas
-              condimentum sem aliquet, vulputate nisl id, maximus justo.
-              Suspendisse venenatis tellus sed lorem bibendum euismod. Orci
-              varius natoque penatibus et magnis dis parturient montes, nascetur
-              ridiculus mus. Pellentesque blandit sem ex, in pulvinar risus
-              tempor vel. Quisque vulputate odio malesuada pretium convallis.
-              Nam semper velit at ipsum eleifend euismod. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Fusce et porta magna. Curabitur
-              ullamcorper pulvinar imperdiet. Maecenas condimentum sem aliquet,
-              vulputate nisl id, maximus justo.
+              BUDOWA DOMW Z DREWNA{'\n'}
+              BUDOWA BRAM WJAZDOWYCH{'\n'}
+              WYKOŃCZENIE WNĘTRZ{'\n'}
+              ALTANY OGRODOWE{'\n'}
+              KAMIENNE ELEMENETY ARCHUTEKTURY{'\n'}
+              REMONTY
             </Text>
           </ImageBackground>
         </View>
@@ -169,13 +164,14 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 10,
     paddingTop: 50,
-    paddingBottom: 10,
+    paddingBottom: 40,
   },
   descriptionText: {
-    color: 'white',
-    fontWeight: '400',
+    color: 'black',
+    fontWeight: '700',
+    fontSize: 20,
     textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowColor: 'rgba(0, 0, 0, 0.4)',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10,
   },

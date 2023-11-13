@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
   subText: {
     fontSize: 15,
     color: '#7CB9E8',
-    fontWeight: '500',
+    fontWeight: '600',
   },
 });
