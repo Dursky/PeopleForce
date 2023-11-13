@@ -2,11 +2,9 @@ import axios from 'axios';
 import {SERVER_URL, API_KEY} from '@env';
 
 export const getAllPosts = async () =>
-  axios
-    .get(`${SERVER_URL}/posts`, {
-      headers: {'x-api-key': API_KEY},
-    })
-    .then(i => i.data);
+  axios.get(`${SERVER_URL}/posts`, {
+    headers: {'x-api-key': API_KEY},
+  });
 
 export const getPost = async (id: string) =>
   axios
