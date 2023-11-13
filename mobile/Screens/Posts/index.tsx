@@ -57,6 +57,7 @@ export const Posts = () => {
                 />
               </View>
             )}
+            style={styles.flatlistPlacing}
             contentContainerStyle={styles.flatlistContainer}
             keyExtractor={item => item.id}
           />
@@ -87,5 +88,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
+  flatlistPlacing: {width: '100%', paddingLeft: 10, paddingRight: 10},
 });
 export default Posts;
